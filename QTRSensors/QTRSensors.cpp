@@ -548,6 +548,35 @@ void QTRSensorsAnalog::readPrivate(unsigned int *sensor_values)
             _numSamplesPerSensor;
 }
 
+
+// A simple loop over the sensors and their midpoints to determine
+// whether or not a sensor is high, returns the count of high sensors
+// TODO: Untested, needs to be tested
+int QTRSensorsAnalog::numSensorsHigh(unsigned int *sensor_values,
+                                     unsigned char readMode, unsigned char white_line)
+{
+    // Get the calibrated values
+    readCalibrated(sensor_values, readMode);
+
+    // Loop through and determine which see a high value
+    char highCount = 0;
+    for(i=0;i<_numSensors;i++) {
+        // Get the value for sensor i, invert if white line
+        int value = sensor_values[i];
+        if(white_line) {
+            value = 1000 - value;
+        }
+
+        // Simple binary result based on calibrated midpoint which will be 500
+        if(value >= 500) {
+            highCount++;
+        }
+    }
+
+    return highCount;
+}
+
+
 // the destructor frees up allocated memory
 QTRSensors::~QTRSensors()
 {

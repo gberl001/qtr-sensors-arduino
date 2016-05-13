@@ -109,6 +109,10 @@ class QTRSensors
     // before the averaging.
     int readLine(unsigned int *sensor_values, unsigned char readMode = QTR_EMITTERS_ON, unsigned char white_line = 0);
 
+    // A simple loop over the sensors and their midpoints to determine
+    // whether or not a sensor is high, returns the count of high sensors
+    int numSensorsHigh(unsigned int *sensor_values, unsigned char readMode = QTR_EMITTERS_ON, unsigned char white_line = 0);
+
     // Calibrated minumum and maximum values. These start at 1000 and
     // 0, respectively, so that the very first sensor reading will
     // update both of them.
