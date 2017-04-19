@@ -143,3 +143,5 @@ fabric.properties
 
 # OTHERS
 cmake-build-debug/
+CMakeLists.txt
+CMakeListsPrivate.txt
