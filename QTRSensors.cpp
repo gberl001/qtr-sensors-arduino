@@ -281,7 +281,7 @@ void QTRSensors::readCalibrated(unsigned int *sensor_values, unsigned char readM
 
         signed int x = 0;
         if(denominator != 0)
-            x = (((signed long)constrain(sensor_values[i], calmin, calmax) - calmin)
+            x = (((signed long)constrain(sensor_values[i], calmin, calmax)) - calmin)
                 * 1000 / denominator;
         if(x < 0)
             x = 0;
