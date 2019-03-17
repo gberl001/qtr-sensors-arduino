@@ -249,8 +249,8 @@ void QTRSensors::readCalibrated(unsigned int *sensor_values, unsigned char readM
 
     for(i=0;i<_numSensors;i++)
     {
-        unsigned int calmin,calmax;
-        unsigned int denominator;
+        signed int calmin,calmax;
+        signed int denominator;
 
         // find the correct calibration
         if(readMode == QTR_EMITTERS_ON)
