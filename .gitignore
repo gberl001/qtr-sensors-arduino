@@ -145,3 +145,5 @@ fabric.properties
 cmake-build-debug/
 CMakeLists.txt
 CMakeListsPrivate.txt
+platformio.ini
+.pioenvs
